@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PickUpWeapon : MonoBehaviour
 {
-    public Transform cameraTransform;
     public KeyCode pickupKey = KeyCode.F;
     public KeyCode dropKey = KeyCode.G;
     string weaponTag = "Weapon";
@@ -51,7 +50,6 @@ public class PickUpWeapon : MonoBehaviour
 
         if (Input.GetKeyDown(dropKey) && currentWeapon != null)
         {
-
             currentWeapon.transform.parent = null;
 
             currentWeapon.transform.position = dropPoint.position;
@@ -80,7 +78,6 @@ public class PickUpWeapon : MonoBehaviour
                 currentWeapon.gameObject.SetActive(false);
             }
             currentWeapon = weapons[index];
-
             currentWeapon.SetActive(true);
         }
     }
