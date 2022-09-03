@@ -5,6 +5,8 @@ using UnityEngine;
 using Assets.Script.Move;
 using Assets.Script.Entity;
 using static UnityEditor.FilePathAttribute;
+using Assets.Script.Main;
+using Assets.Script.Concrete;
 
 public class Move : MonoBehaviour
 {
@@ -14,16 +16,22 @@ public class Move : MonoBehaviour
     private Player player;
     private int xLocation = 0;
     public Ground _ground;
+    private AnimatorManager _animatorManager;
+    JumpManager jumpManager;
 
     public Move()
     {
-        player = new Player() { jumpHeight = 50, speed = 15, isGrounded = false, isRun = true };
     }
 
     void Start()
     {
+        OnLoad onLoad = new OnLoad();
+
         body = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
+        _animatorManager = new AnimatorManager(animator);
+        jumpManager = new JumpManager(_ground, body, player, _animatorManager);
+        player = onLoad.GetPlayer();
     }
 
     // Update is called once per frame
@@ -38,7 +46,7 @@ public class Move : MonoBehaviour
         bool a = Input.GetKey(KeyCode.A);
         bool j = Input.GetKey(KeyCode.Space);
         Vector3 tempVect = new Vector3(0, 0, 0);
-        if (d )
+        if (d)
         {
             tempVect.x = -1;
             tempVect = tempVect.normalized * player.speed * Time.deltaTime;
@@ -54,31 +62,8 @@ public class Move : MonoBehaviour
             var quaternion = Quaternion.LookRotation(tempVect, Vector3.right);
             transform.rotation = quaternion;
         }
-        AnimRun(tempVect);
-        Debug.Log(animator.GetFloat("Speed"));
-        Debug.Log("is_ground : " + _ground.IsGround);
-        if (j && _ground.IsGround)
-        {
-            AnimFunc(-1);
-            body.velocity = Vector3.zero;
-            body.AddForce(transform.up * player.jumpHeight);
-        }
+        _animatorManager.AnimRun("Speed", tempVect);
+        jumpManager.Jump(tempVect);
 
-    }
-
-    void AnimFunc(float speed) 
-    {
-        animator.SetFloat("Speed", speed);
-    }
-    void AnimRun(Vector3 vector) 
-    {
-        if (vector != Vector3.zero) 
-        {
-            AnimFunc(1);
-        }
-        else 
-        {
-            AnimFunc(-1);
-        }
     }
 }
