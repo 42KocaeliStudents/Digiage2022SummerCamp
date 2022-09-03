@@ -75,10 +75,17 @@
  - Saldırı anında menzilindeki düşmanlara itme şeklinde saldırarak hasar uygular ve düşmanları bir miktar itip 0.1sn sersemletir. Çok kısa mesafede hasar uygular.
  - Defans duruşunda bütün silahlardan gelen saldırıları savuşturur, ve defans duruşunda %10 daha yavaş enerji tüketir.
  - **Rünleri ise**
+ 	 - **Dodge Master**: Perry halinde düşman 0.5sn sersemler. _(İlk bölümü bu silah ile bitirince unlock olur.)_
 	 - **Hurraa**: Oyuncu hücuma kalkar ve önündeki bütün düşmanları durduğu yere kadar iter. _()_
-	 - **Dodge Master**: Perry halinde düşman 0.5sn sersemler. _()_
 	 - **Kapı Gibi**: Karşı yönden gelen bütün hasarı defans duruşuna gerek kalmadan engeller. _()_
 	 - **Tokalaşma**: Hem önünde hem arkasında düşman var ise arkadaki düşmanı alıp önüne atar _()_
 
 #### Yay
 ![yay]()
+ - Saldırı halinde karakter bir ok atar ve rün çeşitine göre hasar verir. Rün yok ise ok dediği ilk düşmana saplanır ve hasar uygular. Yay'ın farklı gerginlikleri yoktur belirli, sadece ayarlanan mesafede gider
+ - Defans duruşu yoktur. Ama hafifliğinden dolayı karakter yay kullanırken daha hızlıdır.
+ - **Rünleri ise**
+	 - **Çift Ok**: Saldırı esnasında aynı anda 2 ok atar. _(İlk bölümü bu silah ile bitirince unlock olur.)_
+	 - **Yıldırım Oku**: Attığı okların ucu gümüştendir. Bu sayede çarptığı yüzeye yıldırım düşer.
+	 - **Kaboom**: Attığı okların ucunda barut torbası bulunur. Bu sayede çarptığı yerde bir patlama oluşur.
+	 - **Ateş Topları**: Attığı okların ucunda çakmaktaşı ve saman bulunur. Bu sayede çarptığı yer bir müddet yanar.
