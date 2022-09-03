@@ -41,6 +41,7 @@ public class Move : MonoBehaviour
         Vector3 tempVect = new Vector3(0, 0, 0);
         bool d = Input.GetKey(KeyCode.D);
         bool a = Input.GetKey(KeyCode.A);
+        bool w = Input.GetKey(KeyCode.W);
         bool j = Input.GetKey(KeyCode.Space);
         bool k = Input.GetKey(KeyCode.K);
         if (d)
@@ -70,12 +71,12 @@ public class Move : MonoBehaviour
         if (_ground.IsGround && canDash == false)
             canDash = true;
         AnimRun("Speed", tempVect);
-        Jump(j);
+        Jump(j, w);
     }
 
-    private void Jump(bool j) 
+    private void Jump(bool j, bool w) 
     {
-        if (j && _ground.IsGround)
+        if ((w || j) && _ground.IsGround)
         {
             SetAnim("Speed", -1);
             body.velocity = Vector3.zero;
