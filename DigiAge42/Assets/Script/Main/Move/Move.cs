@@ -72,7 +72,6 @@ public class Move : MonoBehaviour
         if (_ground.IsGround && canDash == false)
             canDash = true;
         AnimRun("Speed", tempVect);
-        SetAnim("Speed", 1);
         if (j && _ground.IsGround)
         {
             SetAnim("Speed", -1);
@@ -96,23 +95,6 @@ public class Move : MonoBehaviour
 
     }
 
-    public void AnimRun(string animName, Vector3 vector)
-    {
-        if (vector != Vector3.zero)
-        {
-            SetAnim(animName, 1);
-        }
-        else
-        {
-            SetAnim(animName, -1);
-        }
-    }
-
-    public void SetAnim(string animName, float value)
-    {
-        animator.SetFloat(animName, value);
-    }
-
     void DashOmer(int key , Vector3 tempVect)
     {
         
@@ -130,6 +112,23 @@ public class Move : MonoBehaviour
         }
         Debug.Log("burasi dondu");
         StartCoroutine(DashTimer(0));
+    }
+
+    public void AnimRun(string animName, Vector3 vector)
+    {
+        if (vector != Vector3.zero)
+        {
+            SetAnim(animName, 1);
+        }
+        else
+        {
+            SetAnim(animName, -1);
+        }
+    }
+
+    public void SetAnim(string animName, float value)
+    {
+        animator.SetFloat(animName, value);
     }
 
 }
