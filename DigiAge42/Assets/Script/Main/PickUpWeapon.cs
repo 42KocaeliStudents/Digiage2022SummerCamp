@@ -44,7 +44,8 @@ public class PickUpWeapon : MonoBehaviour
                 hit.collider.gameObject.SetActive(false);
 
                 hit.transform.parent = hand;
-                hit.transform.position = Vector3.zero;
+                hit.transform.position = hand.transform.position;
+                hit.transform.rotation = hand.transform.rotation;
             }
         }
 
