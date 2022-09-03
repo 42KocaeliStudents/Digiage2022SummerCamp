@@ -4,13 +4,9 @@ using UnityEngine;
 
 public class PickUpWeapon : MonoBehaviour
 {
-    public KeyCode pickupKey = KeyCode.F;
-    public KeyCode dropKey = KeyCode.G;
-    string weaponTag = "Weapon";
-
+    private KeyCode pickupKey = KeyCode.F;
     public GameObject currentWeapon;
     public Transform hand;
-    public Transform dropPoint;
 
     void Update()
     {
@@ -20,23 +16,13 @@ public class PickUpWeapon : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit))
         {
-            if (hit.transform.CompareTag(weaponTag) && Input.GetKeyDown(pickupKey))
+            if (hit.transform.CompareTag("Weapon") && Input.GetKeyDown(pickupKey))
             {         
-                hit.collider.gameObject.SetActive(false);
-                hit.transform.parent = hand;
                 hit.transform.position = hand.transform.position;
                 hit.transform.rotation = hand.transform.rotation;
+                hit.transform.parent = hand;
                 currentWeapon = hit.collider.gameObject;
-                hit.collider.gameObject.SetActive(true);
             }
-        }
-
-        if (Input.GetKeyDown(dropKey) && currentWeapon != null)
-        {
-            currentWeapon.transform.parent = null;
-            currentWeapon.transform.position = dropPoint.position;
-            currentWeapon.transform.rotation = new Quaternion(180, 0, 0, 0);
-            currentWeapon = null;
         }
     }
 }
