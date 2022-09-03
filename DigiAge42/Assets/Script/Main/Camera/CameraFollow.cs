@@ -11,7 +11,7 @@ public class CameraFollow : MonoBehaviour
     // offset between camera and target
     public Vector3 Offset;
     // change this value to get desired smoothness
-    public float SmoothTime = 0.125f;
+    public float SmoothTime = 0.1f;
 
     // This value will change at the runtime depending on target movement. Initialize with zero vector.
     private Vector3 velocity = Vector3.zero;

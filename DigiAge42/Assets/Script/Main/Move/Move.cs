@@ -17,7 +17,7 @@ public class Move : MonoBehaviour
 
     public Move()
     {
-        player = new Player() { jumpHeight = 100, speed = 15, isGrounded = false };
+        player = new Player() { jumpHeight = 100, speed = 15, isGrounded = false, isRun = true };
     }
 
     void Start()
@@ -38,7 +38,7 @@ public class Move : MonoBehaviour
         bool a = Input.GetKey(KeyCode.A);
         bool j = Input.GetKey(KeyCode.Space);
         Vector3 tempVect = new Vector3(0, 0, 0);
-        if (d)
+        if (d )
         {
             tempVect.x = -1;
             tempVect = tempVect.normalized * player.speed * Time.deltaTime;
@@ -57,8 +57,9 @@ public class Move : MonoBehaviour
         AnimRun(tempVect);
         Debug.Log(animator.GetFloat("Speed"));
         Debug.Log("is_ground : " + _ground.IsGround);
-        if (j && _ground.IsGround == true)
+        if (j && _ground.IsGround)
         {
+            AnimFunc(-1);
             body.velocity = Vector3.zero;
             body.AddForce(transform.up * player.jumpHeight);
         }
@@ -75,7 +76,9 @@ public class Move : MonoBehaviour
         {
             AnimFunc(1);
         }
-        else
+        else 
+        {
             AnimFunc(-1);
+        }
     }
 }
