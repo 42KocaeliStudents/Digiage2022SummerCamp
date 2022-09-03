@@ -9,7 +9,6 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class Move : MonoBehaviour
 {
-    // Start is called before the first frame update
     private Rigidbody body;
     private Animator animator;
     private Player player;
@@ -32,7 +31,6 @@ public class Move : MonoBehaviour
         canDash = true;
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         MoveFunc();
@@ -100,7 +98,6 @@ public class Move : MonoBehaviour
 
     void DashOmer(int key , Vector3 tempVect)
     {
-        
         //Dash
         if (key == 1)
         {
