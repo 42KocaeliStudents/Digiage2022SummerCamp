@@ -2,6 +2,26 @@
 # X Game Documentation
 &nbsp;&nbsp; Oyunumuz yıldırımların hükmettiği Post-Apocalyptic bir dünyada geçmektedir. Kahramanımız hayatta kalmak için silahını kuşanıp dışarıdaki tehlikelere karşı savaşmaktadır.
 
+## İçerik
+1. [Haraket Mekanikleri](#haraket-mekanikleri)
+	- [Keyboard](#keyboard)
+	- [Controller](#controller)
+2. [Savaş](#savaş-combat)
+    - [Düşman Çeşitleri](#düşman-çeşitleri-enemy-styles)
+        - [Askerler](#askerler)
+        - [Böcek](#böcekler)
+        - [Enerji formu](#enerji-formları)
+    - [Savaş Mekanikleri](#savaş-mekanikleri-combat-mechanics)
+        - [Saldırı](#1-saldırı)
+        - [Savunma](#2-savunma)
+        - [Kaçınma](#3-kaçınma)
+    - [Silahlar](#silahlar)
+        - [Silah Levelleri](#silah-levelleri)
+        - [Kılıç](#kılıç)
+        - [Mızrak](#mızrak)
+        - [Kalkan](#kalkan)
+        - [Yay](#yay)
+
 ## Haraket Mekanikleri
 
 ### Keyboard
@@ -48,6 +68,14 @@
 
 ### Silahlar
 &nbsp;&nbsp; Oyunda 3'ü yakın 1'i uzak mesafe olmak üzere toplamda 4 tane silah bulunmakta bunlar; kılıç, mızrak, kalkan ve yay'dır. Silahlar kullanıldıkça deneyim puanı kazanırlar ve bu puanlar ile seviye atlarlar, her 2 seviyede bir silahın görünümü bir üst düzeye geçer. Ayrıca her silahın challange ile açılan özelleştirilmiş rünleri vardır, bu rünlerden 1 tanesini silah seçerken aktif edilir ve bölüm ortasında değiştirilemez.
+
+#### Silah Levelleri
+ - Level 0-25, Seviye 0
+ - level 25-50, Seviye 1 -> Görünüş güncellemesi
+ - level 50-75, Seviye 2
+ - level 75-100, Seviye 3 -> Görünüş güncellemesi
+ - level 100-125, Seviye 4
+ - level 125, 150, Seviye 5 -> Görünüş güncelemesi
 
 #### Kılıç
 ![kilic]()
