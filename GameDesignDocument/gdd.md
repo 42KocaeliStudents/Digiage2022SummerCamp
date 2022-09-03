@@ -35,6 +35,8 @@
         - [Mızrak](#mızrak)
         - [Kalkan](#kalkan)
         - [Yay](#yay)
+5. [Yetenek Ağacı _(Yakında..)_]()
+6. [kesin unuttuğum birşey vardır aq _(Yakında..)_ ]()
 
 ## Haraket Mekanikleri
 
