@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Assets.Script.Move
 {
-    public interface IMove
+    public interface IDirectionMove
     {
         void MoveLeft(int x, int y);
         void MoveRight(int x, int y);

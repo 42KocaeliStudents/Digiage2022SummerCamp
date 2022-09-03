@@ -14,24 +14,27 @@ public class Move : MonoBehaviour
     private Rigidbody body;
     private Animator animator;
     private Player player;
-    private int xLocation = 0;
     public Ground _ground;
     private AnimatorManager _animatorManager;
+    private Transform _transform;
+
     JumpManager jumpManager;
+    Vector3 tempVect;
 
     public Move()
     {
+
     }
 
     void Start()
     {
         OnLoad onLoad = new OnLoad();
-
+        player = onLoad.GetPlayer();
         body = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
+        _transform = GetComponent<Transform>();
         _animatorManager = new AnimatorManager(animator);
-        jumpManager = new JumpManager(_ground, body, player, _animatorManager);
-        player = onLoad.GetPlayer();
+        jumpManager = new JumpManager(_ground, body, player, _animatorManager, _transform);
     }
 
     // Update is called once per frame
@@ -42,10 +45,10 @@ public class Move : MonoBehaviour
 
     void MoveFunc()
     {
+        tempVect = new Vector3(0, 0, 0);
         bool d = Input.GetKey(KeyCode.D);
         bool a = Input.GetKey(KeyCode.A);
         bool j = Input.GetKey(KeyCode.Space);
-        Vector3 tempVect = new Vector3(0, 0, 0);
         if (d)
         {
             tempVect.x = -1;
@@ -62,8 +65,12 @@ public class Move : MonoBehaviour
             var quaternion = Quaternion.LookRotation(tempVect, Vector3.right);
             transform.rotation = quaternion;
         }
+        if (j && _ground.IsGround)
+        {
+            jumpManager.Jump(tempVect);
+        }
+        _animatorManager.SetAnim("Speed", 1);
         _animatorManager.AnimRun("Speed", tempVect);
-        jumpManager.Jump(tempVect);
 
     }
 }

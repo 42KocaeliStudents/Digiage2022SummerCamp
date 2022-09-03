@@ -14,14 +14,16 @@ namespace Assets.Script.Concrete
         private Ground _ground;
         private Rigidbody _body;
         private Player _player;
+        private Transform _transform;
         private AnimatorManager _animatorManager;
 
-        public JumpManager(Ground ground, Rigidbody body, Player player, AnimatorManager animatorManager)
+        public JumpManager(Ground ground, Rigidbody body, Player player, AnimatorManager animatorManager, Transform transform)
         {
             _ground = ground;
             _body = body;
             _player = player;
             _animatorManager = animatorManager;
+            _transform = transform;
         }
 
         public bool IsJump(Ground _ground)
@@ -31,13 +33,9 @@ namespace Assets.Script.Concrete
 
         public void Jump(Vector3 tempVect)
         {
-            bool j = Input.GetKey(KeyCode.Space);
-            if (j && _ground.IsGround)
-            {
-                _animatorManager.SetAnim("Speed", -1);
-                _body.velocity = Vector3.zero;
-                _body.AddForce(Vector3.up * _player.jumpHeight);
-            }
+            _animatorManager.SetAnim("Speed", -1);
+            _body.velocity = Vector3.zero;
+            _body.AddForce(_transform.up * _player.jumpHeight);
         }
     }
 }
