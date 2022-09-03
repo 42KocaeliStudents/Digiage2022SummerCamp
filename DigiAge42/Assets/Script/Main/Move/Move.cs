@@ -72,15 +72,18 @@ public class Move : MonoBehaviour
         if (_ground.IsGround && canDash == false)
             canDash = true;
         AnimRun("Speed", tempVect);
+        Jump(j);
+    }
+
+    private void Jump(bool j) 
+    {
         if (j && _ground.IsGround)
         {
             SetAnim("Speed", -1);
             body.velocity = Vector3.zero;
             body.AddForce(_transform.up * player.jumpHeight);
         }
-
     }
-
 
     private IEnumerator DashTimer(int x)
     {
