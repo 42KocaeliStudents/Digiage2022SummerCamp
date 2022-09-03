@@ -52,7 +52,7 @@
 
 ![can_bar]()
 
-Karakterin canı: (100 + ((Kullandığı silahın seviyesi + 1) * 30)), enerjisi: 150 dir. Oyuncu eğer enerji harcayan bir eylem gerçekleştirmez ise enerji saniyede 50 dolacak şekilde dolmaya başlar. Can kendi kendine dolmaz.
+Karakterin canı: (100 + ((Kullandığı silahın seviyesi) * 30)), enerjisi: 150 dir. Oyuncu eğer enerji harcayan bir eylem gerçekleştirmez ise enerji saniyede 50 dolacak şekilde dolmaya başlar. Can kendi kendine dolmaz.
 
 
 ## Savaş _(Combat)_
@@ -95,17 +95,17 @@ Parry: Eğer hasar yemeden 0.3 saniye önce Defans duruşuna geçmiş ise ilgili
 
 #### Kılıç
 ![kilic]()
-- Saldırı anında menzilindeki bütün düşmanlara kesme şeklinde vurarak hasar uygular, kısa mesafede etkilidir. Hasar : (20 * (seviye + 1))
+- Saldırı anında menzilindeki bütün düşmanlara kesme şeklinde vurarak hasar uygular, kısa mesafede etkilidir. Hasar : (20 * seviye)
 - Defans duruşunda iken uzak mesafeli saldırıları %10 ihtimalle savurur, Kalkan ve mızrak saldırılarını engelleyemez iken Kılıç saldırılarını %100 engeller.
 - **Rünleri ise**;
 	- **Tırtıklı Yüzey**: Yapılan her saldırı düşman üzerinde kanama efekti uygular. _(İlk bölümü bu silah ile bitirince unlock olur.)_ Hasar: Saniye başına 10 hasar. Etki 3 saniye sürer.
 	- **Şifalı Vuruş**: Düşman öldürmek eksik canının %2'sini geri doldurur. _(Bu silah ile herhangi bir hasar almadan 10 düşman öldürünce unlock olur.)_
-	- **Kesici Dalga**: Yapılan saldırılar ileri doğru bir dalga yollar ve dalgaya deyen herkes hasar alır. _(Bu silah ile tek vuruşta 3 kill alınca unlock olur.)_ Hasar: (10 * (seviye + 1))
+	- **Kesici Dalga**: Yapılan saldırılar ileri doğru bir dalga yollar ve dalgaya deyen herkes hasar alır. _(Bu silah ile tek vuruşta 3 kill alınca unlock olur.)_ Hasar: (10 * seviye)
 	- **Seri katil**: 10x kombo yapınca hasar artışı sağlar. _(Bu silah ile 5 vuruşta toplam 5 kill alınca unlock olur.)_ hasar artışı: +%30
 
 #### Mızrak
 ![mizrak]()
-- Saldırı anında menzilindeki bütün düşmanlara delme şeklinde saldırarak hasar uygular, orta mesafede etkilidir. Kısa mesafede hasar vuramaz. Hasar : (25 * (seviye + 1))
+- Saldırı anında menzilindeki bütün düşmanlara delme şeklinde saldırarak hasar uygular, orta mesafede etkilidir. Kısa mesafede hasar vuramaz. Hasar : (25 * seviye)
 - Default olarak %5 zırh deşmeye sahiptir _(Zırhlı düşmanlara %5 fazladan vurur)_
 - Defans duruşunda iken kılıç saldırılarını %50 ihtimalle savurur. Kalkan, Yay ve Mızrak saldırılarını engelleyemez.
 - **Rünleri ise**
@@ -116,7 +116,7 @@ Parry: Eğer hasar yemeden 0.3 saniye önce Defans duruşuna geçmiş ise ilgili
 
 #### Kalkan
 ![kalkan]()
- - Saldırı anında menzilindeki düşmanlara itme şeklinde saldırarak hasar uygular ve düşmanları bir miktar itip 0.1sn sersemletir. Ağır saldırı yapar. Çok kısa mesafede hasar uygular. Hasar : (50 * (seviye + 1))
+ - Saldırı anında menzilindeki düşmanlara itme şeklinde saldırarak hasar uygular ve düşmanları bir miktar itip 0.1sn sersemletir. Ağır saldırı yapar. Çok kısa mesafede hasar uygular. Hasar : (50 * seviye)
  - Defans duruşunda bütün silahlardan gelen saldırıları savuşturur, ve defans duruşunda %10 daha yavaş enerji tüketir.
  - **Rünleri ise**
  	 - **Dodge Master**: Parry halinde düşman 0.5sn sersemler. _(İlk bölümü bu silah ile bitirince unlock olur.)_
@@ -126,10 +126,10 @@ Parry: Eğer hasar yemeden 0.3 saniye önce Defans duruşuna geçmiş ise ilgili
 
 #### Yay
 ![yay]()
- - Saldırı halinde karakter bir ok atar ve rün çeşitine göre hasar verir. Rün yok ise ok dediği ilk düşmana saplanır ve hasar uygular. Yay'ın farklı gerginlikleri yoktur belirli, sadece ayarlanan mesafede gider. Hasar : (20 * (seviye + 1))
+ - Saldırı halinde karakter bir ok atar ve rün çeşitine göre hasar verir. Rün yok ise ok dediği ilk düşmana saplanır ve hasar uygular. Yay'ın farklı gerginlikleri yoktur belirli, sadece ayarlanan mesafede gider. Hasar : (20 * seviye)
  - Defans duruşu yoktur. Ama hafifliğinden dolayı karakter yay kullanırken daha hızlıdır.
  - **Rünleri ise**
 	 - **Çift Ok**: Saldırı esnasında aynı anda 2 ok atar. Hasar: 2x _(İlk bölümü bu silah ile bitirince unlock olur.)_
 	 - **Yıldırım Oku**: Attığı okların ucu gümüştendir. Bu sayede çarptığı yüzeye yıldırım düşer. Yıldırım hasarı : 60.
-	 - **Kaboom**: Attığı okların ucunda barut torbası bulunur. Bu sayede çarptığı yerde bir patlama oluşur. Patlama Hasarı: (40 * (seviye + 1)).
+	 - **Kaboom**: Attığı okların ucunda barut torbası bulunur. Bu sayede çarptığı yerde bir patlama oluşur. Patlama Hasarı: (40 * seviye).
 	 - **Ateş Topları**: Attığı okların ucunda çakmaktaşı ve saman bulunur. Bu sayede çarptığı yer bir müddet yanar. Ates hasarı : saniye başına 10;
