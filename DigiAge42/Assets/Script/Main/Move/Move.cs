@@ -17,7 +17,7 @@ public class Move : MonoBehaviour
 
     public Move()
     {
-        player = new Player() { jumpHeight = 100, speed = 15, isGrounded = false, isRun = true };
+        player = new Player() { jumpHeight = 50, speed = 15, isGrounded = false, isRun = true };
     }
 
     void Start()
