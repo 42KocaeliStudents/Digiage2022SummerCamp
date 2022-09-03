@@ -2,6 +2,18 @@
 # X Game Documentation
 &nbsp;&nbsp; Oyunumuz yıldırımların hükmettiği Post-Apocalyptic bir dünyada geçmektedir. Kahramanımız hayatta kalmak için silahını kuşanıp dışarıdaki tehlikelere karşı savaşmaktadır.
 
+| Oyun | Hakkında |
+|:-|-:|
+|**Tema**| Yıldırım ve şimşekler|
+|**Tür** | Aksiyon, Platform, Macera|
+|**Hedef Platform** | PC|
+|**Görsel Tarz**| Lowpoly|
+|**Hedef Kitle**| PC oyunu oynaya herkes|
+|**Geliştirme Süreci**| 1 - 10 Eylül|
+
+
+
+
 ## İçerik
 1. [Haraket Mekanikleri](#haraket-mekanikleri)
 	- [Keyboard](#keyboard)
