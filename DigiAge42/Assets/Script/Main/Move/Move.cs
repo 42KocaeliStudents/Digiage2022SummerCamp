@@ -15,6 +15,9 @@ public class Move : MonoBehaviour
     public Ground _ground;
     private Transform _transform;
     bool    canDash;
+    private bool moveLeft;
+    private bool moveRight;
+    private bool canJump;
 
     public Move()
     {
@@ -36,15 +39,23 @@ public class Move : MonoBehaviour
         MoveFunc();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+            animator.SetTrigger("SwordAttack");
+        if (Input.GetKeyDown(KeyCode.U))
+            animator.SetTrigger("Dance");
+        moveRight = Input.GetKeyDown(KeyCode.D);
+        moveLeft = Input.GetKeyDown(KeyCode.A);
+        canJump = Input.GetKey(KeyCode.W);
+        canJump = Input.GetKey(KeyCode.Space);
+    }
+
     void MoveFunc()
     {
         Vector3 tempVect = new Vector3(0, 0, 0);
-        bool d = Input.GetKey(KeyCode.D);
-        bool a = Input.GetKey(KeyCode.A);
-        bool w = Input.GetKey(KeyCode.W);
-        bool j = Input.GetKey(KeyCode.Space);
         bool k = Input.GetKey(KeyCode.K);
-        if (d)
+        if (moveRight)
         {
             tempVect.x = -1;
             tempVect = tempVect.normalized * player.speed * Time.deltaTime;
@@ -56,7 +67,7 @@ public class Move : MonoBehaviour
             var quaternion = Quaternion.LookRotation(tempVect, Vector3.left);
             transform.rotation = quaternion;
         }
-        if (a)
+        if (moveLeft)
         {
             tempVect.x = 1;
             tempVect = tempVect.normalized * player.speed * Time.deltaTime;
@@ -71,12 +82,12 @@ public class Move : MonoBehaviour
         if (_ground.IsGround && canDash == false)
             canDash = true;
         AnimRun("Speed", tempVect);
-        Jump(j, w);
+        Jump(canJump);
     }
 
-    private void Jump(bool j, bool w) 
+    private void Jump(bool canJump) 
     {
-        if ((w || j) && _ground.IsGround)
+        if (canJump && _ground.IsGround)
         {
             SetAnim("Speed", -1);
             body.velocity = Vector3.zero;
