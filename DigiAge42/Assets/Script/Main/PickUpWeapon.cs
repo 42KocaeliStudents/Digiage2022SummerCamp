@@ -8,15 +8,9 @@ public class PickUpWeapon : MonoBehaviour
     public KeyCode dropKey = KeyCode.G;
     string weaponTag = "Weapon";
 
-    public GameObject weapon;
-
     public GameObject currentWeapon;
     public Transform hand;
     public Transform dropPoint;
-    void Start()
-    {
-        
-    }
 
     void Update()
     {
@@ -28,11 +22,11 @@ public class PickUpWeapon : MonoBehaviour
         {
             if (hit.transform.CompareTag(weaponTag) && Input.GetKeyDown(pickupKey))
             {         
-
                 hit.collider.gameObject.SetActive(false);
                 hit.transform.parent = hand;
                 hit.transform.position = hand.transform.position;
                 hit.transform.rotation = hand.transform.rotation;
+                currentWeapon = hit.collider.gameObject;
                 hit.collider.gameObject.SetActive(true);
             }
         }
