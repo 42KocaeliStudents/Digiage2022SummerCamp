@@ -39,7 +39,7 @@ public class Roll : MonoBehaviour
     {
         isRoll = true;
         SetAnim("Roll", isRoll);
-        for (int i = 0; i < (90 / player.rotateSpeed); i++)
+        for (int i = 0; i <5; i++)
         {
             yield return new WaitForSeconds(0.01f);
         }

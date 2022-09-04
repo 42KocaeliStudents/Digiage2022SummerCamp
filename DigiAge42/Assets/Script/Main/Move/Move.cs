@@ -13,7 +13,7 @@ public class Move : MonoBehaviour
     private Animator animator;
     private Player player;
     public Ground _ground;
-    bool           canDash;
+    bool canDash;
 
     private bool moveLeft;
     private bool moveRight;
@@ -97,7 +97,7 @@ public class Move : MonoBehaviour
         Jump(canJump);
     }
 
-    private void Jump(bool canJump) 
+    private void Jump(bool canJump)
     {
         if (canJump && _ground.IsGround)
         {
@@ -120,14 +120,14 @@ public class Move : MonoBehaviour
 
     }
 
-    void DashOmer(int key , Vector3 tempVect)
+    void DashOmer(int key, Vector3 tempVect)
     {
         //Dash
         if (key == 1)
         {
             tempVect.x = -1;
             body.MovePosition(transform.position + tempVect);
-            
+
         }
         else if (key == 2)
         {
