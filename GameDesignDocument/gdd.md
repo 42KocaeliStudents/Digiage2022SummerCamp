@@ -1,5 +1,6 @@
 
 # X Game Documentation
+
 &nbsp;&nbsp; Oyunumuz yıldırımların hükmettiği Post-Apocalyptic bir dünyada geçmektedir. Kahramanımız hayatta kalmak için silahını kuşanıp dışarıdaki tehlikelere karşı savaşmaktadır.
 
 | Oyun | Hakkında |
@@ -11,7 +12,8 @@
 |**Hedef Kitle**| PC oyunu oynaya herkes|
 |**Geliştirme Süreci**| 1 - 10 Eylül|
 
-
+## Takım Rolleri
+***
 
 
 ## İçerik
