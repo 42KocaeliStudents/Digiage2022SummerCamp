@@ -10,9 +10,9 @@ namespace Assets.Script.Entity
     public class Player: IEntity
     {
         public bool isGrounded;
-        public float healty;
         public float speed = 2.0f;
         public float jumpHeight = 1.0f;
+        public float rotateSpeed = 2f;
         public Vector3 velocity;
     }
 }
