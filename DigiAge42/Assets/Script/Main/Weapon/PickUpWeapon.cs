@@ -17,11 +17,10 @@ public class PickUpWeapon : MonoBehaviour
         if (Physics.Raycast(ray, out hit))
         {
             if (hit.transform.CompareTag("Weapon") && Input.GetKeyDown(pickupKey))
-            {         
-                hit.transform.position = hand.transform.position;
-                hit.transform.rotation = hand.transform.rotation;
-                hit.transform.parent = hand;
-                currentWeapon = hit.collider.gameObject;
+            {
+                if (currentWeapon != null)
+                    Destroy(currentWeapon);
+                currentWeapon = Instantiate(hit.transform.gameObject, hand.transform.position, hand.transform.rotation, hand);
             }
         }
     }
