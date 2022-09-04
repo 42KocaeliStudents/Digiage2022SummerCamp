@@ -13,6 +13,7 @@ public class Move : MonoBehaviour
     private Animator animator;
     private Player player;
     public Ground _ground;
+    public float p_speed;
     bool canDash;
 
     private bool moveLeft;
@@ -42,8 +43,6 @@ public class Move : MonoBehaviour
     private void Update()
     {
         // tüm input alma iþlemleri
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-            animator.SetTrigger("SwordAttack");
         if (Input.GetKeyDown(KeyCode.U))
             animator.SetTrigger("Dance");
         if (Input.GetKeyDown(KeyCode.D))
@@ -72,7 +71,7 @@ public class Move : MonoBehaviour
         if (moveRight)
         {
             tempVect.x = -1;
-            tempVect = tempVect.normalized * player.speed * Time.deltaTime;
+            tempVect = tempVect.normalized * p_speed * Time.deltaTime;
             //Dash Mech
             if (k && canDash == true && _ground.IsGround == false)
                 DashOmer(1, tempVect);
@@ -84,7 +83,7 @@ public class Move : MonoBehaviour
         if (moveLeft)
         {
             tempVect.x = 1;
-            tempVect = tempVect.normalized * player.speed * Time.deltaTime;
+            tempVect = tempVect.normalized * p_speed * Time.deltaTime;
             //Dash Mech
             if (k && canDash == true && _ground.IsGround == false)
                 DashOmer(2, tempVect);
