@@ -13,8 +13,7 @@ public class Move : MonoBehaviour
     private Animator animator;
     private Player player;
     public Ground _ground;
-    private Transform _transform;
-    bool    canDash;
+    bool           canDash;
 
     private bool moveLeft;
     private bool moveRight;
@@ -32,7 +31,6 @@ public class Move : MonoBehaviour
         player = onLoad.GetPlayer();
         body = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
-        _transform = GetComponent<Transform>();
         canDash = true;
     }
 
@@ -105,7 +103,7 @@ public class Move : MonoBehaviour
         {
             SetAnim("Speed", -1);
             body.velocity = Vector3.zero;
-            body.AddForce(_transform.up * player.jumpHeight);
+            body.AddForce(transform.up * player.jumpHeight);
         }
     }
 
