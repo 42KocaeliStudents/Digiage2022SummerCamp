@@ -10,16 +10,21 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 public class Move : MonoBehaviour
 {
     public Rigidbody body;
+    BoxCollider bc;
     private Animator animator;
     private Player player;
     public Ground _ground;
     public float p_speed;
     bool canDash;
+    Vector3 tempVect;
 
     private bool moveLeft;
     private bool moveRight;
     private bool canJump;
     private bool k;
+    private bool canRoll;
+    private bool lookRight = true;
+    bool rollController = true;
 
     public Level level;
 
@@ -31,6 +36,7 @@ public class Move : MonoBehaviour
         body = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
         level = GetComponent<Level>();
+        bc = GetComponent<BoxCollider>();
         canDash = true;
     }
 
@@ -62,12 +68,14 @@ public class Move : MonoBehaviour
             k = false;
         if (_ground.IsGround && canDash == false)
             canDash = true;
+        if (Input.GetKeyDown(KeyCode.LeftControl))
+            canRoll = true;
     }
 
     void MoveFunc()
     {
-        Vector3 tempVect = new Vector3(0, 0, 0);
-        if (moveRight)
+        tempVect = new Vector3(0, 0, 0);
+        if (moveRight && !canRoll)
         {
             tempVect.x = -1;
             tempVect = tempVect.normalized * p_speed * Time.deltaTime;
@@ -78,8 +86,9 @@ public class Move : MonoBehaviour
                 body.MovePosition(transform.position + tempVect);
             var quaternion = Quaternion.LookRotation(tempVect, Vector3.left);
             transform.rotation = quaternion;
+            lookRight = true;
         }
-        if (moveLeft)
+        if (moveLeft && !canRoll)
         {
             tempVect.x = 1;
             tempVect = tempVect.normalized * p_speed * Time.deltaTime;
@@ -90,6 +99,18 @@ public class Move : MonoBehaviour
                 body.MovePosition(transform.position + tempVect);
             var quaternion = Quaternion.LookRotation(tempVect, Vector3.right);
             transform.rotation = quaternion;
+            lookRight = false;
+        }
+        if (canRoll)
+        {
+            // eger ki roll atma tusuna basildiysa animasyon oynar ve zamanlayici 1 saniye sonra roll atmasini durdurur. Bu sure icinde karakter haraket edemez.
+            if (rollController)
+            {
+                animator.SetTrigger("Roll");
+                StartCoroutine(dashDelay());
+                rollController = false;
+            }
+            Rolling();
         }
         AnimRun("Speed", tempVect);
         Jump(canJump);
@@ -97,7 +118,7 @@ public class Move : MonoBehaviour
 
     private void Jump(bool canJump)
     {
-        if (canJump && _ground.IsGround)
+        if (canJump && _ground.IsGround && !canRoll)
         {
             SetAnim("Speed", -1);
             body.velocity = Vector3.zero;
@@ -125,14 +146,14 @@ public class Move : MonoBehaviour
         {
             animator.SetTrigger("Dash");
             tempVect.x = -1;
-            body.MovePosition(transform.position + tempVect);
+            body.AddForce(-1000, 0, 0);
 
         }
         else if (key == 2)
         {
             animator.SetTrigger("Dash");
             tempVect.x = 1;
-            body.MovePosition(transform.position + tempVect);
+            body.AddForce(1000, 0, 0);
             
         }
         StartCoroutine(DashTimer(0));
@@ -141,18 +162,45 @@ public class Move : MonoBehaviour
     public void AnimRun(string animName, Vector3 vector)
     {
         if (vector != Vector3.zero)
-        {
             SetAnim(animName, 1);
-        }
         else
-        {
             SetAnim(animName, -1);
-        }
     }
 
     public void SetAnim(string animName, float value)
     {
         animator.SetFloat(animName, value);
+    }
+
+    // yuvarlanma
+    void Rolling()
+    {
+        p_speed = 5;
+        if (lookRight) // eger ki saga bakiyor ise saga dogru hareket et
+        {
+            tempVect.x = -1;
+            tempVect = tempVect.normalized * p_speed * Time.deltaTime;
+            body.MovePosition(transform.position + tempVect);
+        }
+        else
+        {
+            tempVect.x = 1;
+            tempVect = tempVect.normalized * p_speed * Time.deltaTime;
+            body.MovePosition(transform.position + tempVect);
+        }
+    }
+
+    // 1 saniye sonra yuvarlanma ozelligini kaldirir.
+    IEnumerator dashDelay()
+    {
+        bc.center = new Vector3(0,0.4f,0.002f);
+        bc.size = new Vector3(0.4f, 0.8f, 0.3f);
+        yield return new WaitForSeconds(1);
+        bc.center = new Vector3(0, 0.9f, 0.002f);
+        bc.size = new Vector3(0.4f, 1.8f, 0.3f);
+        p_speed = 4;
+        canRoll = false;
+        rollController = true;
     }
 
 }
