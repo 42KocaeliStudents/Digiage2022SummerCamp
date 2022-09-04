@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &55074987 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4710724533431776867, guid: 163c7c25349f814409cd9619502b95d5, type: 3}
+  m_PrefabInstance: {fileID: 4743885816107783890}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8914e842d13243847be6c6e4af3025ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &965094528 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8657714799169354191, guid: 163c7c25349f814409cd9619502b95d5, type: 3}
@@ -2208,17 +2219,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8317498777045951349, guid: 163c7c25349f814409cd9619502b95d5, type: 3}
   m_PrefabInstance: {fileID: 4743885816107783890}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3654699762853066154 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2705992422112639283, guid: 163c7c25349f814409cd9619502b95d5, type: 3}
-  m_PrefabInstance: {fileID: 4743885816107783890}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 965094528}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8914e842d13243847be6c6e4af3025ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &3654699762853066159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2232,7 +2232,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 965094528}
-  _ground: {fileID: 3654699762853066154}
+  _ground: {fileID: 55074987}
 --- !u!1001 &3727959819299670620
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2677,6 +2677,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2705992422112639280, guid: 163c7c25349f814409cd9619502b95d5, type: 3}
+      propertyPath: Range
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4291341339577227190, guid: 163c7c25349f814409cd9619502b95d5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.96
+      objectReference: {fileID: 0}
     - target: {fileID: 8317498777045951349, guid: 163c7c25349f814409cd9619502b95d5, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -2723,6 +2731,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8657714799169354191, guid: 163c7c25349f814409cd9619502b95d5, type: 3}
       propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8657714799169354191, guid: 163c7c25349f814409cd9619502b95d5, type: 3}
+      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -22,10 +22,6 @@ public class Move : MonoBehaviour
     private bool k;
 
     public Level level;
-    public Move()
-    {
-
-    }
 
     void Start()
     {
@@ -134,7 +130,7 @@ public class Move : MonoBehaviour
         }
         else if (key == 2)
         {
-        animator.SetTrigger("Dash");
+            animator.SetTrigger("Dash");
             tempVect.x = 1;
             body.MovePosition(transform.position + tempVect);
             

@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class Ground : MonoBehaviour
 {
-    public bool IsGround { get; set; }
-    private void OnCollisionEnter(Collision collision)
+    public bool IsGround;
+    private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.CompareTag("floor"))
             IsGround = true;
     }
-    private void OnCollisionExit(Collision collision)
+
+    private void OnTriggerExit(Collider collision)
     {
         if (collision.gameObject.CompareTag("floor"))
             IsGround = false;
