@@ -43,6 +43,7 @@ public class Move : MonoBehaviour
 
     private void Update()
     {
+        // tüm input alma iþlemleri
         if (Input.GetKeyDown(KeyCode.Mouse0))
             animator.SetTrigger("SwordAttack");
         if (Input.GetKeyDown(KeyCode.U))
