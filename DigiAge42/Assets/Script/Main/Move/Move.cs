@@ -13,8 +13,12 @@ public class Move : MonoBehaviour
     private Animator animator;
     private Player player;
     public Ground _ground;
-    private Transform _transform;
-    bool    canDash;
+    bool canDash;
+
+    private bool moveLeft;
+    private bool moveRight;
+    private bool canJump;
+    private bool k;
 
     public Move()
     {
@@ -27,7 +31,6 @@ public class Move : MonoBehaviour
         player = onLoad.GetPlayer();
         body = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
-        _transform = GetComponent<Transform>();
         canDash = true;
     }
 
@@ -36,14 +39,37 @@ public class Move : MonoBehaviour
         MoveFunc();
     }
 
+    private void Update()
+    {
+        // tüm input alma iþlemleri
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+            animator.SetTrigger("SwordAttack");
+        if (Input.GetKeyDown(KeyCode.U))
+            animator.SetTrigger("Dance");
+        if (Input.GetKeyDown(KeyCode.D))
+            moveRight = true;
+        if (Input.GetKeyUp(KeyCode.D))
+            moveRight = false;
+        if (Input.GetKeyDown(KeyCode.A))
+            moveLeft = true;
+        if (Input.GetKeyUp(KeyCode.A))
+            moveLeft = false;
+        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space))
+            canJump = true;
+        if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.Space))
+            canJump = false;
+        if (Input.GetKeyDown(KeyCode.K))
+            k = true;
+        if (Input.GetKeyUp(KeyCode.K))
+            k = false;
+        if (_ground.IsGround && canDash == false)
+            canDash = true;
+    }
+
     void MoveFunc()
     {
         Vector3 tempVect = new Vector3(0, 0, 0);
-        bool d = Input.GetKey(KeyCode.D);
-        bool a = Input.GetKey(KeyCode.A);
-        bool j = Input.GetKey(KeyCode.Space);
-        bool k = Input.GetKey(KeyCode.K);
-        if (d)
+        if (moveRight)
         {
             tempVect.x = -1;
             tempVect = tempVect.normalized * player.speed * Time.deltaTime;
@@ -55,7 +81,7 @@ public class Move : MonoBehaviour
             var quaternion = Quaternion.LookRotation(tempVect, Vector3.left);
             transform.rotation = quaternion;
         }
-        if (a)
+        if (moveLeft)
         {
             tempVect.x = 1;
             tempVect = tempVect.normalized * player.speed * Time.deltaTime;
@@ -67,25 +93,23 @@ public class Move : MonoBehaviour
             var quaternion = Quaternion.LookRotation(tempVect, Vector3.right);
             transform.rotation = quaternion;
         }
-        if (_ground.IsGround && canDash == false)
-            canDash = true;
         AnimRun("Speed", tempVect);
-        Jump(j);
+        Jump(canJump);
     }
 
-    private void Jump(bool j) 
+    private void Jump(bool canJump)
     {
-        if (j && _ground.IsGround)
+        if (canJump && _ground.IsGround)
         {
             SetAnim("Speed", -1);
             body.velocity = Vector3.zero;
-            body.AddForce(_transform.up * player.jumpHeight);
+            body.AddForce(transform.up * player.jumpHeight);
         }
     }
 
     private IEnumerator DashTimer(int x)
     {
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.1f);
         if (x == 1)
             canDash = true;
         else
@@ -96,21 +120,20 @@ public class Move : MonoBehaviour
 
     }
 
-    void DashOmer(int key , Vector3 tempVect)
+    void DashOmer(int key, Vector3 tempVect)
     {
         //Dash
         if (key == 1)
         {
             tempVect.x = -1;
             body.MovePosition(transform.position + tempVect);
-            
+
         }
         else if (key == 2)
         {
             tempVect.x = 1;
             body.MovePosition(transform.position + tempVect);
         }
-        Debug.Log("burasi dondu");
         StartCoroutine(DashTimer(0));
     }
 
