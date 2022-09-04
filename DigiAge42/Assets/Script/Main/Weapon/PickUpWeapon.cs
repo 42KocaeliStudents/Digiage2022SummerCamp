@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PickUpWeapon : MonoBehaviour
 {
-    private KeyCode pickupKey = KeyCode.F;
+    private KeyCode pickupKey = KeyCode.E;
     public GameObject currentWeapon;
     public Transform hand;
 

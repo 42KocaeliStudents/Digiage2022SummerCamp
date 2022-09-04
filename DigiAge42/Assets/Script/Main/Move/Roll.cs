@@ -1,22 +1,22 @@
 using Assets.Script.Entity;
 using Assets.Script.Main;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Roll : MonoBehaviour
 {
-    private Player player;
+    public GameObject player;
     public Ground _ground;
     private Animator animator;
-
-    private bool isRoll;
+    private bool isRoll = false;
+    private bool moveLeft;
+    private bool moveRight;
+    Vector3 tempVect = new Vector3(0, 0, 0);
     void Start()
     {
-        OnLoad onLoad = new OnLoad();
-        player = onLoad.GetPlayer();
         animator = GetComponent<Animator>();
-
     }
 
     void Update()
@@ -26,40 +26,46 @@ public class Roll : MonoBehaviour
 
     private void RollFunc()
     {
-        bool b = Input.GetKey(KeyCode.B);
-
-        if (isRoll) return;
-        if (b && _ground == true)
+        bool lCtrl = Input.GetKey(KeyCode.LeftControl);
+        if (lCtrl && _ground == true)
         {
+            player.GetComponent<Move>().p_speed = 15f;
             StartCoroutine(RollEnum());
         }
+    }
+
+    void RollMove()
+    {
+        if (player.GetComponent<Move>().transform.rotation.y > 0)
+            RollMoveRight();
+        else if (player.GetComponent<Move>().transform.rotation.y < 0)
+            RollMoveLeft();
+    }
+
+    private void RollMoveLeft()
+    {
+        tempVect.x = -1;
+        tempVect = tempVect.normalized * player.GetComponent<Move>().p_speed * Time.deltaTime;
+        player.GetComponent<Move>().body.MovePosition(transform.position + tempVect);
+    }
+
+    private void RollMoveRight()
+    {
+        tempVect.x = 1;
+        tempVect = tempVect.normalized * player.GetComponent<Move>().p_speed * Time.deltaTime;
+        player.GetComponent<Move>().body.MovePosition(transform.position + tempVect);
     }
 
     IEnumerator RollEnum() 
     {
         isRoll = true;
-        SetAnim("Roll", isRoll);
-        for (int i = 0; i <5; i++)
+        animator.SetTrigger("Roll");
+        for (int i = 0; i < 205; i++)
         {
+            RollMove();
             yield return new WaitForSeconds(0.01f);
         }
+        tempVect.x = 0;
         isRoll = false;
-    }
-
-    public void AnimRun(string animName, Vector3 vector)
-    {
-        if (vector != Vector3.zero)
-        {
-            SetAnim(animName, true);
-        }
-        else
-        {
-            SetAnim(animName, false);
-        }
-    }
-
-    public void SetAnim(string animName, bool value)
-    {
-        animator.SetBool(animName, value);
     }
 }

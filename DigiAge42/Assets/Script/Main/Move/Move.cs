@@ -9,7 +9,7 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class Move : MonoBehaviour
 {
-    private Rigidbody body;
+    public Rigidbody body;
     private Animator animator;
     private Player player;
     public Ground _ground;
@@ -21,6 +21,7 @@ public class Move : MonoBehaviour
     private bool canJump;
     private bool k;
 
+    public Level level;
     public Move()
     {
 
@@ -30,8 +31,10 @@ public class Move : MonoBehaviour
     {
         OnLoad onLoad = new OnLoad();
         player = onLoad.GetPlayer();
+        p_speed = player.speed;
         body = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
+        level = GetComponent<Level>();
         canDash = true;
     }
 
@@ -124,14 +127,17 @@ public class Move : MonoBehaviour
         //Dash
         if (key == 1)
         {
+            animator.SetTrigger("Dash");
             tempVect.x = -1;
             body.MovePosition(transform.position + tempVect);
 
         }
         else if (key == 2)
         {
+        animator.SetTrigger("Dash");
             tempVect.x = 1;
             body.MovePosition(transform.position + tempVect);
+            
         }
         StartCoroutine(DashTimer(0));
     }
