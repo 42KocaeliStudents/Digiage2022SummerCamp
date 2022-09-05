@@ -45,7 +45,6 @@
 - ileri geri için A ve D
 - Zıplamak için Space ve W
 - Etkileşim tuşu E
-- Envanterde Gezinme ScrollUp ve ScrollDown
 - Saldırı ve savunma LMB, RMB
 - Kaçınma Ctrl
 ### Controller
@@ -54,7 +53,6 @@
 - İleri geri için LeftJoystick
 - Zıplamak için A
 - Etkileşim tuşu RightTrigger
-- Envanterde Gezinme DpadLeft ve Dpad right
 - Saldırı ve savunma X, Y
 - Kaçınma B
 
