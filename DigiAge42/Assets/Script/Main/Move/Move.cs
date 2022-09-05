@@ -9,7 +9,7 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class Move : MonoBehaviour
 {
-    public Rigidbody body;
+    private Rigidbody body;
     BoxCollider bc;
     private Animator animator;
     private Player player;
