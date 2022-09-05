@@ -26,8 +26,6 @@ public class Move : MonoBehaviour
     private bool lookRight = true;
     bool rollController = true;
 
-    public Level level;
-
     void Start()
     {
         OnLoad onLoad = new OnLoad();
@@ -35,7 +33,6 @@ public class Move : MonoBehaviour
         p_speed = player.speed;
         body = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
-        level = GetComponent<Level>();
         bc = GetComponent<BoxCollider>();
         canDash = true;
     }
