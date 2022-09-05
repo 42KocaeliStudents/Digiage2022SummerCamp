@@ -78,7 +78,7 @@ public class Move : MonoBehaviour
             tempVect = tempVect.normalized * p_speed * Time.deltaTime;
             //Dash Mech
             if (k && canDash == true && _ground.IsGround == false)
-                DashOmer(1, tempVect);
+                Dash(1, tempVect);
             else
                 body.MovePosition(transform.position + tempVect);
             var quaternion = Quaternion.LookRotation(tempVect, Vector3.left);
@@ -91,7 +91,7 @@ public class Move : MonoBehaviour
             tempVect = tempVect.normalized * p_speed * Time.deltaTime;
             //Dash Mech
             if (k && canDash == true && _ground.IsGround == false)
-                DashOmer(2, tempVect);
+                Dash(2, tempVect);
             else
                 body.MovePosition(transform.position + tempVect);
             var quaternion = Quaternion.LookRotation(tempVect, Vector3.right);
@@ -136,7 +136,7 @@ public class Move : MonoBehaviour
 
     }
 
-    void DashOmer(int key, Vector3 tempVect)
+    void Dash(int key, Vector3 tempVect)
     {
         //Dash
         if (key == 1)
