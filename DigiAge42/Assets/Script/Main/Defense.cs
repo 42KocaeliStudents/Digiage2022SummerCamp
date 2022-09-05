@@ -20,7 +20,6 @@ public class Defense : MonoBehaviour
     }
     void Update()
     {
-        Debug.Log(Input.GetMouseButtonDown(1));
         if (Input.GetMouseButtonDown(1))
             mouseRight = true;
         else if (Input.GetMouseButtonUp(1))

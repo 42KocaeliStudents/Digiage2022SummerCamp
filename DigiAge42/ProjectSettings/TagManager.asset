@@ -8,6 +8,9 @@ TagManager:
   - Sword
   - Weapon
   - Enemy
+  - Military
+  - Insect
+  - Eneryform
   layers:
   - Default
   - TransparentFX

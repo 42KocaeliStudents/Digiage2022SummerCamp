@@ -5,8 +5,9 @@ using UnityEngine;
 public class SwordMechanics : MonoBehaviour
 {
     private Animator anim;
-    bool firstAttack;
-    bool SecondAttack;
+    private bool firstAttack;
+    private bool secondAttack;
+    public bool attack;
     float _time = 0f;
     public GameObject player;
     public Ground _ground;
@@ -19,17 +20,18 @@ public class SwordMechanics : MonoBehaviour
 
     void Update()
     {
+        attack = false;
         _time += Time.deltaTime; // sayac mantigi
         if (Input.GetMouseButtonDown(0)) // eger ki sol mouse'a basildiysa
             OnClick();
         if (_time >= maxComboDelay) // zaman max combo suresini gecti ise attacklar sifirlaniyor.
         {
             firstAttack = false;
-            SecondAttack = false;
+            secondAttack = false;
             player.GetComponent<Move>().p_speed = 4;
             _time = 0;
         }
-        if (!SecondAttack && firstAttack && _time >= 0.8f) // eger ki ilk vurus yapildiysa ve ikinci vurus daha yapilmadiysa normal hiza geri doner.
+        if (!secondAttack && firstAttack && _time >= 0.8f) // eger ki ilk vurus yapildiysa ve ikinci vurus daha yapilmadiysa normal hiza geri doner.
             player.GetComponent<Move>().p_speed = 4;
     }
 
@@ -38,6 +40,7 @@ public class SwordMechanics : MonoBehaviour
         // ilk atack yapilmadiysa ilk attack'i yapar ve sureyi sifirlar ayriyeten playerin hizini yariya dusurur.
         if (!firstAttack) 
         {
+            attack = true;
             anim.SetTrigger("Attack1");
             firstAttack = true;
             if (_ground.IsGround) // havadayken hizini yavaslatmak istemedigim icin yazdim
@@ -46,12 +49,12 @@ public class SwordMechanics : MonoBehaviour
         }
         // ilk atack yapildiysa ve ilk attack yapildiktan sonra 0.7 saniye gectiyse ikinci attagi yap
         // sureyi 0.8 e cek bu sayede 2. attack son kombo saniyesinde yapilsa dahi direk olarak _time sifirlanmasin.
-        if (firstAttack && !SecondAttack && _time >= 0.7f)
+        if (firstAttack && !secondAttack && _time >= 0.7f)
         {
             anim.SetTrigger("Attack2");
             if (_ground.IsGround)
                 player.GetComponent<Move>().p_speed = 2;
-            SecondAttack = true;
+            secondAttack = true;
             _time = 0.8f;
         }
     }
