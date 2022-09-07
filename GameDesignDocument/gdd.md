@@ -1,4 +1,4 @@
-# Yıldırımlar Düşmanınız Olabilir Game Documentation
+# Thundercalypse Game Documentation
 
 ## İçerik
 1. [Proje Hakkında](#proje-hakkında)
@@ -8,6 +8,7 @@
 	- [Konsept](#konsept)
 	- [Hikaye](#hikaye)
 	- [Pazar Araştırması ve Hedef Kitle](#pazar-araştırması-ve-hedef-kitle)
+	- [Ekip](#takım-rolleri)
 2. [Teknik Tasarım Detayları](#teknik-tasarım-detayları)
 	- [Teknik Yapı](#teknik-yapı)
 		- [Teknik Donanım](#teknik-donanım)
@@ -37,24 +38,38 @@
 3. [Yetenek Ağacı](#skill-three)
 4. [kesin unuttuğum birşey vardır aq _(Yakında..)_ ]()
 
-
 ## Proje Hakkında
  * ### Vizyon :
-	Vizyonumuzu tek bir cümle ile tanımlamak istersek "Yılrımlar Düşmanınız Olabilir" derdik. Oyunun Geçtiği kıyamet sonrası dünyada kontrolsüz şekilde şimşekler çakmakta, yıldırımlar düşmekte. Karakterimiz buna sebeb olanlara dur demek için savaşmakta.
+	Vizyon olarak günümüzdeki fabrikaların bacalarından çıkan gazların yeteri kadar kontrol edilmediğini ve böyle giderse gelecekte bizi nasıl bir dünya olabileceğini düşündük ve bunu oyuncuya hissettirmek istedik. Post-Apocalpystic(Kıyamet sonrası) bir dünya atmosferi inanılmaz dengesiz durumda ve heryere yıldırımlar, düşmekte şimşekler çakmakta.
  * ### Kapsam :
 	Vizyonun görünüşüne göre, oyunun kapsamı büyüktür. Demo için hazırladığımız bölümler oyunun sadece başlangıcını barındırmakta ve projenin ilerleyen süreçlerinde çeşitlenerek gelişecektir. Aynı şekilde Düşmanlar, Silahlar, ve silah seviyeleri yine demoya uygun şekilde oyunun sadece belirli bir kısmını barındırmaktadır. Bu döküman sadece demo için hazırlandığından dolayı kafamızdaki planın yanında küçük bir projeymiş gibi gözükebilir.
  * ### Projenin Hedefi :
 	Ekibimiz ile beraber bize verilen etkinlik süreci(10 gün) içerisinde tasarladığımız oyunun oynanabilir bir demosunu çıkartıp bu demoyu yayıncılara sunmak.
 ### Konsept
- *  **Başlık :** Oyun sahasında belirtildiği gibi oyunun adı “Yılrımlar Düşmanınız Olabilir” dir. Bu, “Yıldırım ve Şimşekler” olan oyunun gerekli temasını takip eder.
+ *  **Başlık :** Oyun sahasında belirtildiği gibi oyunun adı “Thundercalypse” dir. Bu, “Yıldırım ve Şimşekler” olan oyunun gerekli temasını takip eder.
  *  **Oynanış Kancası :** Ana karakterimiz Dış dünyayı keşfeder, Ayarında zorluğu ile düşmanlarla savaşır. Oyunun sonuna kadar devam eden dünyayı yaşanmaz hale getiren şirketlere bunun bedelini ödetme arzusunu da devam ettirecektir.
  *  **Tür :** Platform, Macera, Aksiyon.
  *  **Tema :** Yıldırımlar ve şimşekler.
  *  **Platform :** _(Demo için sadece)_ PC
 ### Hikaye:
-&nbsp; &nbsp;sene 2242, önü kesilemeyen fabrikalaşma ve sanayileşmenin denetimsiz kalması yüzünden atmosfer çoğu canlı için yaşanılmaz hale geldi. Yeryüzünde yaşayan canlıların neredeyse hepsi öldü hayatta kalanlar ise mutasyona uğradı, Atmosferdeki kirlilik yüzünden kontrolsüz şekilde şimşekler çakmakta ve yıldırımlar düşmekte. İnsanlık bu atmosferden sığınmak için yer altına çekildi ve yer altında sığınaklar kurarak yaşamaya başladı, tabiki bu sığınakları yeryüzünün bu hale gelmesine sebeb olan şirketler yönetiyor. Kahramanımız bir iftira sonucu yargısız infaza mağruz kalıyor ve sığınaklardan yeryüzüne sürgün ediliyor. Büyüleyici şekilde atmosferin kendisine zarar vermediğini gören kahramanımız bu düzene dur demek için ant içiyor ve şirketlere karşı savaşmaya başlıyor.
+&nbsp; &nbsp; Sene 2242, önü kesilemeyen fabrikalaşma ve sanayileşmenin denetimsiz kalması yüzünden atmosfer çoğu canlı için yaşanılmaz hale geldi. Yeryüzünde yaşayan canlıların neredeyse hepsi öldü hayatta kalanlar ise mutasyona uğradı, Atmosferdeki kirlilik yüzünden kontrolsüz şekilde şimşekler çakmakta ve yıldırımlar düşmekte. İnsanlık bu atmosferden sığınmak için yer altına çekildi ve yer altında sığınaklar kurarak yaşamaya başladı, tabiki bu sığınakları yeryüzünün bu hale gelmesine sebeb olan şirketler yönetiyor. Kahramanımız bir iftira sonucu yargısız infaza mağruz kalıyor ve sığınaklardan yeryüzüne sürgün ediliyor. Büyüleyici şekilde atmosferin kendisine zarar vermediğini gören kahramanımız bu düzene dur demek için ant içiyor ve şirketlere karşı savaşmaya başlıyor.
 ### Pazar Araştırması ve Hedef Kitle
-&nbsp; &nbsp;Oyun sahasına göre bu oyun için belirlediğimiz ana kitle 16-25. Bunun nedeni 16-25 yaşındaki çoğu kişinin oyunlara daha eleştirel yaklaşması ve onların isteklerine uygun bir yapı kurduk. Ayrıca Uluslararası alanda 13 yaş ve üzerinde olan herkes oyunumuzu oynayabilir.
+&nbsp; &nbsp;Oyun sahasına göre bu oyun için belirlediğimiz ana kitle 16-25. Bunun nedeni 16-25 yaşındaki çoğu kişinin oyunlara daha eleştirel yaklaşması. Bu sebeble onların isteklerine uygun bir yapı kurduk. Ayrıca Uluslararası alanda 13 yaş ve üzerinde olan herkes oyunumuzu oynayabilir.
+### Takım Rolleri
+|İsim | Rol|
+|:-|-:|
+|Ömer Faruk TOPLUOĞLU| Project Manager|
+|Ahmet ERYILMAZ| Game Manager / Level Designer|
+|Onur DEMİREL| 3D Desingner|
+|Yunus Emre AKTAŞ| 3D Desingner|
+|Alper DEMİRÇİ| Sound Desinger|
+|Erdoğan ÇAYIR| Animation Designer|
+|Muhammet Batuhan FİLİZ| Animation Designer|
+|Ahmet ÖZSAYAR| Unity Developer|
+|Enes ÖZMERT| Unity Developer|
+|Rafet Can Tosun| Unity Developer|
+|Burak YILDIRIM| Unity Developer|
+|Bahadır DURMUŞ| _(Hakketen Bahadır ne yaptı?)_|
 
 ## Teknik Tasarım Detayları
 
@@ -64,7 +79,7 @@
 * #### Teknik Yazılım
 	&nbsp; &nbsp;Bu oyunu oluşturmak için Unity yazılımını kullandık, Unity sayesinde 3 boyutlu bir dünya yapmakta zorluk çekmedik. Objeleri Blender programını kullanarak programladık.
 * #### Yapay Zeka
-	&nbsp; &nbsp;#####
+	&nbsp; &nbsp; Düşman yapay zekası oyunda belirlenen zorluğa göre tasarlanmıştır. Normal zamanda devriye şeklinde gezen düşmanlar oyuncuyu gördüklerinde oyuncuya karşı agresif bir tavırla saldırırlar.
 ### Grafik Ve Animasyon
 &nbsp; &nbsp; Oyunu ilk başta 2D olarak planlıyorduk ama daha sonra 3D yapmanın oyun için daha faydalı olacağını düşünüp 3D tasarlamaya başladık. Oyundaki nesneleri karakterleri ve objeleri Blender isimli programı kullanarak oluşturduk ve oyuna ekledik.
 ## Haraket Mekanikleri
@@ -106,6 +121,7 @@ Karakterin canı: (100 + ((Kullandığı silahın seviyesi) * 30)), enerjisi: 15
 ![askerler]()
 &nbsp; &nbsp; Askerler klasik ve normal düşman tipidir, oyuncunun kullandığı silahları onlarda kullanır. Görüş alanına girdiğinizde sizi takip eder ve vuruş menziline girerseniz size saldırırlar. Kullandıkları silaha göre dayanılıkları, hızları ve hasarları değişkenlik gösterir.
 Can Havuzu: Değişken
+
 ![bocek]()
 &nbsp; &nbsp; Böcekler yerden çıkar ve yaydıkları güçlü Aura ile aura menzilindeki düşmanları hasar almaz hale getirirler ama kendileri hasar alabilir. Çok dayanıklı değillerdir ama Hızlı haraket ederler. Can havuzu: 100.
 #### Enerji Formları
@@ -114,6 +130,7 @@ Can Havuzu: Değişken
 
 ### Savaş Mekanikleri
 &nbsp;&nbsp; Oyuncu savaş esnasında toplamda 3 Mekaniğe sahip, Bunlar Saldırı Savunma ve Kaçınma;
+
 #### 1. Saldırı
 &nbsp;&nbsp; Oyuncu farenin Sol tuşu ile saldırıya geçer. Saldırmaya karar verdiği anda bir miktar enerji harcar _(Eğer yeterli enerjisi yok ise saldıramaz)_ ardından saldırı animasyonu devreye girer. Saldırı gerçekleştiğinde silahın çeşitine göre menzilinde bir düşman var ise ilgili düşman hasar alır , Silahın etkileri üzerine uygulanır ve 0.1 saniye sersemler. Ard arda yapılan öldürmeler kombo olarak nitelendirilir ve her 5X comboda hasar (Kombo sayacı * 3x) kadar artar.
 #### 2. Savunma
@@ -177,3 +194,5 @@ Parry: Eğer hasar yemeden 0.3 saniye önce Defans duruşuna geçmiş ise ilgili
 
 ## Skill Three
 ![skill_tree](./img/skill_tree.png)
+
+&nbsp; &nbsp; Yetenek ağacı'nın ilk yeteneği tutorialda açılır ve karaktere dash mekaniğini ekler. Daha sonra 3 ana dala bölünür, bu temalar; Saldırı, Savunma, ve Haraketlilik. Her bir dal temasına uygun bir pasif(kullanmak için çaba gerektirmeyen) güç ekler.
