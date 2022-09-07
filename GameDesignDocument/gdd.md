@@ -1,35 +1,41 @@
-# Yılrımlar Düşmanınız Olabilir Game Documentation
+# Yıldırımlar Düşmanınız Olabilir Game Documentation
 
 ## İçerik
 1. [Proje Hakkında](#proje-hakkında)
-    - [Vizyon](#vizyon)
-    - [Kapsam](#kapsam)
-    - [Proje Hedefi](#projenin-hedefi)
-    - [Konsept](#konsept)
-    - [Hedef Kitle](#hedef-kitle)
-    - [Hikaye](#hikaye)
-2. [Haraket Mekanikleri](#haraket-mekanikleri)
+	- [Vizyon](#vizyon)
+	- [Kapsam](#kapsam)
+	- [Proje Hedefi](#projenin-hedefi)
+	- [Konsept](#konsept)
+	- [Hikaye](#hikaye)
+	- [Pazar Araştırması ve Hedef Kitle](#pazar-araştırması-ve-hedef-kitle)
+2. [Teknik Tasarım Detayları](#teknik-tasarım-detayları)
+	- [Teknik Yapı](#teknik-yapı)
+		- [Teknik Donanım](#teknik-donanım)
+		- [Teknik Yazılım](#teknik-yazılım)
+		- [Yapay Zeka](#yapay-zeka)
+	- [Grafik ve Animasyon](#grafik-ve-animasyon)
+3. [Haraket Mekanikleri](#haraket-mekanikleri)
 	- [Keyboard](#keyboard)
 	- [Controller](#controller)
-2. [Core Game](#2-core-loop)
-3. [Hayatta Kalma](#hayatta-kalma)
-4. [Savaş Sistemleri](#4-savaş-sistemi-combat-systems)
-    - [Düşman Çeşitleri](#düşman-çeşitleri-enemy-styles)
-        - [Askerler](#askerler)
-        - [Böcek](#böcekler)
-        - [Enerji formu](#enerji-formları)
-    - [Savaş Mekanikleri](#savaş-mekanikleri-combat-mechanics)
-        - [Saldırı](#1-saldırı)
-        - [Savunma](#2-savunma)
-        - [Kaçınma](#3-kaçınma)
-    - [Silahlar](#silahlar)
-        - [Silah Levelleri](#silah-levelleri)
-        - [Kılıç](#kılıç)
-        - [Mızrak](#mızrak)
-        - [Kalkan](#kalkan)
-        - [Yay](#yay)
-5. [Yetenek Ağacı _(Yakında..)_]()
-6. [kesin unuttuğum birşey vardır aq _(Yakında..)_ ]()
+1. [Core Game](#2-core-loop)
+1. [Hayatta Kalma](#hayatta-kalma)
+2. [Savaş Sistemi](#4-savaş-sistemi-combat-systems)
+	- [Düşman Çeşitleri](#düşman-çeşitleri-enemy-styles)
+		- [Askerler](#askerler)
+		- [Böcek](#böcekler)
+		- [Enerji formu](#enerji-formları)
+	- [Savaş Mekanikleri](#savaş-mekanikleri-combat-mechanics)
+		- [Saldırı](#1-saldırı)
+		- [Savunma](#2-savunma)
+		- [Kaçınma](#3-kaçınma)
+	- [Silahlar](#silahlar)
+		- [Silah Levelleri](#silah-levelleri)
+		- [Kılıç](#kılıç)
+		- [Mızrak](#mızrak)
+		- [Kalkan](#kalkan)
+		- [Yay](#yay)
+3. [Yetenek Ağacı](#skill-three)
+4. [kesin unuttuğum birşey vardır aq _(Yakında..)_ ]()
 
 
 ## Proje Hakkında
@@ -45,14 +51,23 @@
  *  **Tür :** Platform, Macera, Aksiyon.
  *  **Tema :** Yıldırımlar ve şimşekler.
  *  **Platform :** _(Demo için sadece)_ PC
-### Hedef Kitle
-&nbsp;&nbsp;13 yaş ve üzeri bilgisayar oynayan herkes.
 ### Hikaye:
-sene 2242, önü kesilemeyen fabrikalaşma ve sanayileşmenin denetimsiz kalması yüzünden atmosfer çoğu canlı için yaşanılmaz hale geldi. Yeryüzünde yaşayan canlıların neredeyse hepsi öldü hayatta kalanlar ise mutasyona uğradı, Atmosferdeki kirlilik yüzünden kontrolsüz şekilde şimşekler çakmakta ve yıldırımlar düşmekte. İnsanlık bu atmosferden sığınmak için yer altına çekildi ve yer altında sığınaklar kurarak yaşamaya başladı, tabiki bu sığınakları yeryüzünün bu hale gelmesine sebeb olan şirketler yönetiyor. Kahramanımız bir iftira sonucu yargısız infaza mağruz kalıyor ve sığınaklardan yeryüzüne sürgün ediliyor. Büyüleyici şekilde atmosferin kendisine zarar vermediğini gören kahramanımız bu düzene dur demek için ant içiyor ve şirketlere karşı savaşmaya başlıyor.
+&nbsp; &nbsp;sene 2242, önü kesilemeyen fabrikalaşma ve sanayileşmenin denetimsiz kalması yüzünden atmosfer çoğu canlı için yaşanılmaz hale geldi. Yeryüzünde yaşayan canlıların neredeyse hepsi öldü hayatta kalanlar ise mutasyona uğradı, Atmosferdeki kirlilik yüzünden kontrolsüz şekilde şimşekler çakmakta ve yıldırımlar düşmekte. İnsanlık bu atmosferden sığınmak için yer altına çekildi ve yer altında sığınaklar kurarak yaşamaya başladı, tabiki bu sığınakları yeryüzünün bu hale gelmesine sebeb olan şirketler yönetiyor. Kahramanımız bir iftira sonucu yargısız infaza mağruz kalıyor ve sığınaklardan yeryüzüne sürgün ediliyor. Büyüleyici şekilde atmosferin kendisine zarar vermediğini gören kahramanımız bu düzene dur demek için ant içiyor ve şirketlere karşı savaşmaya başlıyor.
+### Pazar Araştırması ve Hedef Kitle
+&nbsp; &nbsp;Oyun sahasına göre bu oyun için belirlediğimiz ana kitle 16-25. Bunun nedeni 16-25 yaşındaki çoğu kişinin oyunlara daha eleştirel yaklaşması ve onların isteklerine uygun bir yapı kurduk. Ayrıca Uluslararası alanda 13 yaş ve üzerinde olan herkes oyunumuzu oynayabilir.
 
+## Teknik Tasarım Detayları
 
-## 1. Haraket Mekanikleri
-
+### Teknik Yapı
+* #### Teknik Donanım
+	&nbsp; &nbsp;Bu oyun PC ve Console da oynamaya uygundur. Bilgisayara orta alt seviye veya üstü CPU-GPU kombinasyonuna sahipseniz veya son 2 jenerasyon consollardan birini kullanıyorsanız bu oyunu rahatlıkla oynayabilirsiniz.
+* #### Teknik Yazılım
+	&nbsp; &nbsp;Bu oyunu oluşturmak için Unity yazılımını kullandık, Unity sayesinde 3 boyutlu bir dünya yapmakta zorluk çekmedik. Objeleri Blender programını kullanarak programladık.
+* #### Yapay Zeka
+	&nbsp; &nbsp;#####
+### Grafik Ve Animasyon
+&nbsp; &nbsp; Oyunu ilk başta 2D olarak planlıyorduk ama daha sonra 3D yapmanın oyun için daha faydalı olacağını düşünüp 3D tasarlamaya başladık. Oyundaki nesneleri karakterleri ve objeleri Blender isimli programı kullanarak oluşturduk ve oyuna ekledik.
+## Haraket Mekanikleri
 ### Keyboard
 ![Keyboard Controls]()
 - ileri geri için A ve D
@@ -71,10 +86,10 @@ sene 2242, önü kesilemeyen fabrikalaşma ve sanayileşmenin denetimsiz kalmas�
 - Saldırı ve savunma X, Y
 - Kaçınma B
 
-## 2. Core Loop
+## Core Loop
 ![coregameloop](./img/gameloop.png)
 
-## 3. Hayatta Kalma
+## Hayatta Kalma
 &nbsp;&nbsp; Hayatta kalma mekanikleri can ve enerji baz alarak ilerliyor. Karakterin çoğu aksiyonu enerji harcar, eğer enerjisi biter ise karakter yorulur ve soluklanmak için bir müddet olduğu yerde kalır.
 
 ![can_bar]()
@@ -82,22 +97,22 @@ sene 2242, önü kesilemeyen fabrikalaşma ve sanayileşmenin denetimsiz kalmas�
 Karakterin canı: (100 + ((Kullandığı silahın seviyesi) * 30)), enerjisi: 150 dir. Oyuncu eğer enerji harcayan bir eylem gerçekleştirmez ise enerji saniyede 50 dolacak şekilde dolmaya başlar. Can kendi kendine dolmaz.
 
 
-## 4. Savaş Sistemi _(Combat Systems)_
+## Savaş Sistemi
 &nbsp; &nbsp; Oyuncu bölüm başında silahını seçer ve maceraya başlar. Bu macerada karşısına belirli düşmanlar çıkacaktır, Düşmanla karşılaşıldığında ise;
 
-### Düşman Çeşitleri _(Enemy Styles)_
+### Düşman Çeşitleri
 &nbsp; &nbsp; Oyunda farklı yapıya sahip 3 düşman tipi var, bunlar; Askerler, Böcekler ve Enerji formları.
 #### Askerler
 ![askerler]()
 &nbsp; &nbsp; Askerler klasik ve normal düşman tipidir, oyuncunun kullandığı silahları onlarda kullanır. Görüş alanına girdiğinizde sizi takip eder ve vuruş menziline girerseniz size saldırırlar. Kullandıkları silaha göre dayanılıkları, hızları ve hasarları değişkenlik gösterir.
-Can Havuzu: Değişken _(sonra eklenecek)_ 
+Can Havuzu: Değişken
 ![bocek]()
 &nbsp; &nbsp; Böcekler yerden çıkar ve yaydıkları güçlü Aura ile aura menzilindeki düşmanları hasar almaz hale getirirler ama kendileri hasar alabilir. Çok dayanıklı değillerdir ama Hızlı haraket ederler. Can havuzu: 100.
 #### Enerji Formları
 ![enerjiform]()
 &nbsp; &nbsp; Enerji formları saçtıkları elektik ile oyuncuyu çarpar ve bir süreliğine yavaşlatır. Hasarı azdır ama kendisi dayanıksız değildir çok fazla haraket kabiliyetleri de yoktur. Çarpılan oyuncunun haraketi ve saldırıları yavaşlar, çarpılma etkisinden kurtulana kadar defans duruşuna geçemez. Can havuzu: 150;
 
-### Savaş Mekanikleri _(Combat Mechanics)_
+### Savaş Mekanikleri
 &nbsp;&nbsp; Oyuncu savaş esnasında toplamda 3 Mekaniğe sahip, Bunlar Saldırı Savunma ve Kaçınma;
 #### 1. Saldırı
 &nbsp;&nbsp; Oyuncu farenin Sol tuşu ile saldırıya geçer. Saldırmaya karar verdiği anda bir miktar enerji harcar _(Eğer yeterli enerjisi yok ise saldıramaz)_ ardından saldırı animasyonu devreye girer. Saldırı gerçekleştiğinde silahın çeşitine göre menzilinde bir düşman var ise ilgili düşman hasar alır , Silahın etkileri üzerine uygulanır ve 0.1 saniye sersemler. Ard arda yapılan öldürmeler kombo olarak nitelendirilir ve her 5X comboda hasar (Kombo sayacı * 3x) kadar artar.
@@ -136,7 +151,7 @@ Parry: Eğer hasar yemeden 0.3 saniye önce Defans duruşuna geçmiş ise ilgili
 - Defans duruşunda iken kılıç saldırılarını %50 ihtimalle savurur. Kalkan, Yay ve Mızrak saldırılarını engelleyemez.
 - **Rünleri ise**
 	- **Zehir Diş**: Yapılan her saldırı düşman üzerinde zehir efekti uygular. _(İlk bölümü bu silah ile bitirince unlock olur.)_ Hasar: Saniye başına 10 hasar. Etki 3 saniye sürer.
- 	- **Hızlı Vuruş**: Normal saldırılar 3'lü vuruş yapar. 3 vuruş birden vurma etkileri uygular. _(Bu silah ile tek saldırıda 3 kill alınca unlock olur.)_ Hasar: (hasar * 3)
+	- **Hızlı Vuruş**: Normal saldırılar 3'lü vuruş yapar. 3 vuruş birden vurma etkileri uygular. _(Bu silah ile tek saldırıda 3 kill alınca unlock olur.)_ Hasar: (hasar * 3)
 	- **Kırık Zırh**: Zırh deşme oranı %20 artarak %25 olur. _(Bu silah ile ard arda 4 vuruşta 4 kill alınca açılır.)_
 	- **İtici Vuruş**: Mızrağı yere vurup yakınındaki düşmaları saldırı menziline iter. _(Bu silah ile 2 sn içinde hem önünden hemde arkadan kill alınca unlock olur.)_
 
