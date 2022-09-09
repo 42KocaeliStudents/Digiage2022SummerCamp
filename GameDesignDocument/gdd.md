@@ -69,7 +69,7 @@
 |Enes ÖZMERT| Unity Developer|
 |Rafet Can Tosun| Unity Developer|
 |Burak YILDIRIM| Unity Developer|
-|Bahadır DURMUŞ| _(Hakketen Bahadır ne yaptı?)_|
+|Bahadır DURMUŞ| Unity Developer|
 
 ## Teknik Tasarım Detayları
 
