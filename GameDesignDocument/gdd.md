@@ -55,21 +55,6 @@
 &nbsp; &nbsp; Sene 2242, önü kesilemeyen fabrikalaşma ve sanayileşmenin denetimsiz kalması yüzünden atmosfer çoğu canlı için yaşanılmaz hale geldi. Yeryüzünde yaşayan canlıların neredeyse hepsi öldü hayatta kalanlar ise mutasyona uğradı, Atmosferdeki kirlilik yüzünden kontrolsüz şekilde şimşekler çakmakta ve yıldırımlar düşmekte. İnsanlık bu atmosferden sığınmak için yer altına çekildi ve yer altında sığınaklar kurarak yaşamaya başladı, tabiki bu sığınakları yeryüzünün bu hale gelmesine sebeb olan şirketler yönetiyor. Kahramanımız bir iftira sonucu yargısız infaza mağruz kalıyor ve sığınaklardan yeryüzüne sürgün ediliyor. Büyüleyici şekilde atmosferin kendisine zarar vermediğini gören kahramanımız bu düzene dur demek için ant içiyor ve şirketlere karşı savaşmaya başlıyor.
 ### Pazar Araştırması ve Hedef Kitle
 &nbsp; &nbsp;Oyun sahasına göre bu oyun için belirlediğimiz ana kitle 16-25. Bunun nedeni 16-25 yaşındaki çoğu kişinin oyunlara daha eleştirel yaklaşması. Bu sebeble onların isteklerine uygun bir yapı kurduk. Ayrıca Uluslararası alanda 13 yaş ve üzerinde olan herkes oyunumuzu oynayabilir.
-### Takım Rolleri
-|İsim | Rol|
-|:-|-:|
-|Ömer Faruk TOPLUOĞLU| Project Manager|
-|Ahmet ERYILMAZ| Game Manager / Level Designer|
-|Onur DEMİREL| 3D Desingner|
-|Yunus Emre AKTAŞ| 3D Desingner|
-|Alper DEMİRÇİ| Sound Desinger|
-|Erdoğan ÇAYIR| Animation Designer|
-|Muhammet Batuhan FİLİZ| Animation Designer|
-|Ahmet ÖZSAYAR| Unity Developer|
-|Enes ÖZMERT| Unity Developer|
-|Rafet Can Tosun| Unity Developer|
-|Burak YILDIRIM| Unity Developer|
-|Bahadır DURMUŞ| Unity Developer|
 
 ## Teknik Tasarım Detayları
 
